@@ -22,3 +22,7 @@ jobs:
 
       - name: Run tests
         run: python -m unittest discover -v
+      - name: Scan for leaked secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
